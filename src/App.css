@@ -1,0 +1,431 @@
+/* App.css */
+
+/* General styles */
+body {
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  margin: 2%;
+  padding: 0;
+  background-color: #99CCFF;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px; /* Adjust max-width as needed */
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  padding: 5px; /* Padding around the entire container */
+  width: fit-content; /* Adjust width to fit content */
+}
+
+.search-container input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 20px;
+  border-color: white;
+  margin-right: 10px;
+
+}
+
+.search-container .fa-search {
+  color: white; /* White color for the icon */
+  margin-right: 5px; /* Add a small margin to the right of the icon */
+}
+
+.search input[type="text"]::placeholder {
+  color: black; /* Set placeholder text color to white */
+}
+
+.search button {
+  background-color: transparent; /* Set button background color to transparent */
+  color: white; /* Set button text color to white */
+  border: none;
+  padding: 5px; /* Padding inside the button */
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* .search-bar input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #71797E; /* Match background color */
+  /* color: white; Match text color */
+/* } */ 
+
+.search-bar input [type="text"]{
+  flex-grow: 0.5;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 20px;
+  border-color: white;
+  margin-right: 10px;
+
+}
+
+.search-bar .fa-search {
+  color: white; /* Match icon color */
+  margin-right: 5px;
+}
+
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% - 20px); /* Adjust width to fit the search bar */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Initial max-height for dropdown */
+  overflow-y: auto; /* Enable vertical scrolling */
+  z-index: 10;
+}
+
+.search-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-dropdown ul.scrollable {
+  max-height: 150px; /* Max-height when scrollable */
+}
+
+.search-dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+
+.remove-icon {
+  float: right;
+  margin-left: 5px;
+  color: #999;
+}
+
+.remove-icon:hover {
+  color: #666;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 60px;
+  display: inline-block;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.toggle-switch-checkbox {
+  display: none;
+}
+
+.toggle-switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.toggle-switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.toggle-switch-inner:before, .toggle-switch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 26px;
+  padding: 0;
+  line-height: 26px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.toggle-switch-inner:before {
+  content: attr(data-celsius);
+  padding-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.toggle-switch-inner:after {
+  content: attr(data-fahrenheit);
+  padding-right: 10px;
+  background-color: #ff6347;
+  color: #fff;
+  text-align: right;
+}
+
+.toggle-switch-switch {
+  display: block;
+  width: 18px;
+  margin: 4px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 32px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
+  margin-left: 0;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
+  right: 0px;
+}
+
+/* Main content styles */
+.main-content {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap if needed */
+  justify-content: space-between; /* Space between items */
+  gap: 20px; /* Space between items */
+  width: 100%;
+  max-width: 1200px; /* Adjust max-width as needed */
+  margin-top: 5%;
+}
+
+/* Weather display styles */
+
+.weather-display {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 8%;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.weather-display h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.weather-display p {
+  font-size: 0.9rem;
+  text-align: left;
+  color: white;
+}
+
+.weather-display .forecast-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: space-between; /* Space between items */
+  gap: 20px; /* Space between items */
+}
+
+.weather-display .forecast-item {
+  background-color: #444; /* Different background color for forecast items */
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: calc(20% - 10px); /* Adjust width to fit 5 items in a row with some space */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.weather-display .forecast-item p {
+  margin: 5px 0;
+  font-size: 1rem; /* Ensure text size is consistent */
+}
+
+.weather-display.clear {
+  background-color: #87ceeb; /* Light blue for clear weather */
+}
+
+.weather-display.cloudy {
+  background-color: #778899; /* Light slate gray for cloudy weather */
+}
+
+.weather-display.rainy {
+  background-color: #4682b4; /* Steel blue for rainy weather */
+}
+
+.weather-display.thunderstorm {
+  background-color: #000080; /* Navy for thunderstorm */
+}
+
+.weather-display.snowy {
+  background-color: #fffafa; /* Snow for snowy weather */
+  color: black; /* Ensure text is readable */
+}
+
+.weather-display.foggy {
+  background-color: #708090; /* Slate gray for foggy weather */
+}
+
+.weather-display.default {
+  background-color: #71797E; /* Default background color */
+}
+
+.current-date-time {
+  font-size: 1rem;
+  color: #ccc; /* Slightly different color for the current date and time */
+  margin-top: 0px;
+}
+
+/* Favorites.css */
+
+.favorites {
+  width: 35%; /* Adjust width as needed */
+  background-color: #3399FF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* margin-top: 8%; Match margin-top with weather-display */
+  color: white;
+}
+
+.favorites-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.favorites-header h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.initial-add-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 100px;
+}
+
+.initial-add-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Transparent black background on hover */
+}
+
+
+.favorites-header .add-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 100px; /* Adds gap between text and + button */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.search-bar .add-button {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.remove-button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.5); /* Red background for remove button */
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px; /* Adds gap between city info and remove button */
+}
+
+.remove-button:hover {
+  background-color: rgba(255, 0, 0, 0.8); /* Darker red on hover */
+}
+
